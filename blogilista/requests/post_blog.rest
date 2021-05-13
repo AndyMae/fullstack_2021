@@ -1,0 +1,11 @@
+POST http://localhost:3003/api/blogs
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFuZHnDhE0iLCJpZCI6IjYwM2ZlMWZmNzk2MzliMjE0ODkwNDY3OCIsImlhdCI6MTYxNDg4NzA3OH0.jTlFNyHFKbt8iRjCXcABNrY_MuTLidvaTBm0wqJk5VE
+
+
+ {
+    "likes": 9999,
+    "title": "Vielä upouudempi Upoupouusi blogi Andyltä",
+    "author": "AndiMa",
+    "url": "http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html"
+  }

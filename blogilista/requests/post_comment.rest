@@ -1,0 +1,8 @@
+POST http://localhost:3003/api/blogs/6058e67ec4db9c4b6474252e/comments
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFuZHnDhE0iLCJpZCI6IjYwNGE3OGJmZmMzYmY5ODA1MDJlM2NiOSIsImlhdCI6MTYyMDU2MTI2MX0.1XdqiSlWDe0D7JfUdem4bNq9FSBghiBWIzPwl_aDuac
+
+
+{
+  "comment": "Painikelvoton :("
+}
