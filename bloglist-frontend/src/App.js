@@ -19,6 +19,8 @@ import {
   Switch, Route
 } from 'react-router-dom'
 
+import styled from 'styled-components'
+
 
 const App = () => {
   //const [user, setUser] = useState(null)
@@ -60,10 +62,28 @@ const App = () => {
   )
 
 
+  const ContainerDiv = styled.div`
+    margin: 10px
+  `
+
+  const MainH1 = styled.h1`
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    padding-bottom: 5px;
+    text-decoration: underline 1px;
+  `
+
+  const StyledH2 = styled.h2`
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: 333333;
+  `
+
   return (
-    <div className="container">
+    <ContainerDiv className="container">
       <NavigationMenu />
-      <h1>BlogApp</h1>
+      <MainH1>Blog App</MainH1>
       <Notification />
       {user === null
         ? loginForm()
@@ -79,14 +99,14 @@ const App = () => {
               <SingleBlogView />
             </Route>
             <Route path="/">
-              <h2>blogs</h2>
+              <StyledH2>Blogs</StyledH2>
               {createBlogForm()}
               <Blogs />
             </Route>
           </Switch>
         </div>
       }
-    </div>
+    </ContainerDiv>
   )
 }
 

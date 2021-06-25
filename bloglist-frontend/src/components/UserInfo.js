@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useRouteMatch } from 'react-router-dom'
+import styled from 'styled-components'
 
 const UserInfo = () => {
 
@@ -48,20 +49,28 @@ const UserInfo = () => {
   const username = blogsOfUser.reduce(nameFinder, '')
   console.log(username)
 
+  const BlogUl = styled.ul`
+    background: #f1fde7;
+  `
+
+  const StyledH2 = styled.h2`
+    font-style: italic;
+  `
+
   return (
     <div>
       <h1>{username}</h1>
       {blogsOfUser !== null
         ? <div>
-          <h2>added blogs</h2>
-          <ul>
+          <StyledH2>added blogs</StyledH2>
+          <BlogUl>
             {blogsOfUser.map(b =>
               <Blog
                 key={b.id}
                 blog={b}
               />
             )}
-          </ul>
+          </BlogUl>
         </div>
         : <span>No blogs added yet</span>
       }
@@ -70,8 +79,16 @@ const UserInfo = () => {
 }
 
 const Blog = ({ blog }) => {
+  const BlogLi = styled.li`
+    padding-top: 10px;
+    padding-left: 2px;
+    margin-bottom: 2px;
+    list-style-type: upper-roman;
+    color: 333333;
+  `
+
   return (
-    <li>{blog.title}</li>
+    <BlogLi>{blog.title}</BlogLi>
   )
 }
 

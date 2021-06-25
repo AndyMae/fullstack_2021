@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { addBlog } from '../reducers/blogReducer'
 import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
 
 
 const CreateBlogForm = () => {
@@ -30,13 +31,30 @@ const CreateBlogForm = () => {
     dispatch(addBlog(blogObject))
   }
 
+  const StyledInput = styled.input`
+    border: 1px solid #9BF057;
+    border-radius: 5px;
+    margin: 2px 0;
+    display: block;
+  `
+
+  const StyledButton = styled.button`
+  background-color: #6057f0;
+  color: white;
+  border-radius: 5px;
+  `
+
+  const StyledH3 = styled.h3`
+    color: #333333
+  `
+
   return (
     <div>
-      <h2>create new</h2>
+      <StyledH3>create new</StyledH3>
       <form onSubmit={createBlog} id='createBlogForm'>
         <div>
           title
-          <input
+          <StyledInput
             id="title"
             value={title}
             name="title"
@@ -45,7 +63,7 @@ const CreateBlogForm = () => {
         </div>
         <div>
           author
-          <input
+          <StyledInput
             id="author"
             value={author}
             name="author"
@@ -54,14 +72,14 @@ const CreateBlogForm = () => {
         </div>
         <div>
           url
-          <input
+          <StyledInput
             id="url"
             value={url}
             name="url"
             onChange={({ target }) => setUrl(target.value)}
           />
         </div>
-        <button id='create-button' type="submit">create</button>
+        <StyledButton id='create-button' type="submit">create</StyledButton>
       </form>
     </div>
   )

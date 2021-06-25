@@ -6,90 +6,40 @@ import { useSelector } from 'react-redux'
 import {
   Link
 } from 'react-router-dom'
+import styled from 'styled-components'
 
 
 const Blog = ({ blog }) => {
-  /*
-  const loggedUser = useSelector(state => state.user)
-  const [visible, setVisible] = useState('')
 
-  const showWhenVisible = { display: visible ? 'none' : '' }
-  const hideWhenVisible = { display: visible ? '' : 'none' }
+  const BlogLi = styled.li`
+  padding-top: 10px;
+  padding-left: 2px;
+  margin-bottom: 2px;
+  list-style-type: upper-roman;
+  color: 333333;
+  `
 
-  const dispatch = useDispatch()
-
-  const toggleVisibility = () => {
-    setVisible(!visible)
-  }
-
-  const addLike = () => {
-    const changedBlog = { ...blog, likes: blog.likes + 1, user: blog.user.id }
-    console.log(changedBlog)
-
-
-
-    const changedBlog = {
-      user: blog.user.id,
-      likes: blog.likes + 1,
-      author: blog.author,
-      title: blog.title,
-      url: blog.url,
-    }
-
-
-    dispatch(changeBlog(changedBlog))
-  }
-
-  const dropBlog = () => {
-    window.confirm(`Remove blog "${blog.title}" by ${blog.author}?`)
-      && dispatch(removeBlog(blog.id))
-  }
-
-
-  console.log('Käyttäjät BLOGissa')
-  console.log(blog)
-  console.log(blog.user)
-  console.log(blog.user.username)
-  console.log('LOGGED SER')
-  console.log(loggedUser)
-
-  let displayRemoveButton = ''
-  if (loggedUser) {
-    displayRemoveButton = blog.user.username === loggedUser.user ? '' : 'none'
-  } else {
-    displayRemoveButton = 'none'
-  }
-
-  const removeButtonStyle = {
-    background: 'blue',
-    color: 'white',
-    display: displayRemoveButton
-  }
-  */
-  const blogStyle = {
-    paddingTop: 10,
-    paddingLeft: 2,
-    border: 'solid',
-    borderWidth: 1,
-    marginBottom: 5
-  }
 
 
   const link = `/blogs/${blog.id}`
 
   return (
-    <li id='blog-info' style={blogStyle}>
+    <BlogLi id='blog-info'>
       <Link to={link}>{blog.title}</Link>
-    </li>
+    </BlogLi>
   )
 }
 
-
 const Blogs = () => {
   const blogs = useSelector(state => state.blogs)
+
+  const BlogUl = styled.ul`
+    background: #f1fde7;
+  `
+
   return (
     <div>
-      <ul>
+      <BlogUl>
         {blogs
           .sort((a, b) => (
             b.likes - a.likes
@@ -100,7 +50,7 @@ const Blogs = () => {
               blog={blog}
             />
           )}
-      </ul>
+      </BlogUl>
     </div>
   )
 }

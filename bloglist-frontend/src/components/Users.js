@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 //import { Table } from 'react-bootstrap'
 //import lodash from 'lodash'
+import styled from 'styled-components'
 
 
 const Users = () => {
@@ -36,37 +37,69 @@ const Users = () => {
 
   const numberOfBlogs = blogs.reduce(reducer1, [])
 
+  const StyledH2 = styled.h2`
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    color: 333333;
+  `
+
+  const UserTableBackground = styled.div`
+    background: #f1fde7;
+  `
+
+  const UserTable = styled.table`
+    width: 50%;
+  `
+
+  const UserTableHeader = styled.th`
+    background: #9bf057;
+    color: white;
+  `
+
   return (
     <div>
-      <h2>Users</h2>
-      <table>
-        <tbody>
-          <tr>
-            <th></th>
-            <th>blogs created</th>
-          </tr>
-          {numberOfBlogs.map(user =>
-            <User
-              key={user.key}
-              user={user}
-            />
-          )}
-        </tbody>
-      </table>
+      <StyledH2>Users</StyledH2>
+      <UserTableBackground>
+        <UserTable>
+          <tbody>
+            <tr>
+              <UserTableHeader>user</UserTableHeader>
+              <UserTableHeader>blogs created</UserTableHeader>
+            </tr>
+            {numberOfBlogs.map(user =>
+              <User
+                key={user.key}
+                user={user}
+              />
+            )}
+          </tbody>
+        </UserTable>
+      </UserTableBackground>
     </div>
   )
 }
 
 const User = ({ user }) => {
   const link = `/users/${user.id}`
+
+  /*
+  const LeftAlignCol = styled.td`
+    text-align: left
+  `
+  */
+
+  const CenterAlignCol = styled.td`
+    text-align: center
+  `
+
   return (
     <tr>
-      <td>
+      <CenterAlignCol>
         <Link to={link}>
           {user.username}
         </Link>
-      </td>
-      <td>{user.blogs}</td>
+      </CenterAlignCol>
+      <CenterAlignCol>{user.blogs}</CenterAlignCol>
     </tr>
   )
 }
